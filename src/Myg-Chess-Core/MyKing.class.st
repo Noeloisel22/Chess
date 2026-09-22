@@ -27,6 +27,16 @@ MyKing >> basicTargetSquares [
 	}
 ]
 
+{ #category : 'rendering' }
+MyKing >> glyphTable [
+	^ Dictionary new
+		at: #(true false) put: 'K';
+		at: #(true true) put: 'k';
+		at: #(false false) put: 'L';
+		at: #(false true) put: 'l';
+		yourself
+]
+
 { #category : 'accessing' }
 MyKing >> id [
 	
@@ -67,12 +77,6 @@ MyKing >> opponentPieces [
 
 	^ self board pieces select: [ :e |
 		  e notNil and: [ e color = color negated ] ]
-]
-
-{ #category : 'rendering' }
-MyKing >> renderPieceOn: aSquare [
-
-	^ aSquare renderKing: self
 ]
 
 { #category : 'rendering' }

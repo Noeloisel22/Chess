@@ -5,15 +5,19 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+{ #category : 'rendering' }
+MyRook >> glyphTable [
+	^ Dictionary new
+		at: #(true false) put: 'R';
+		at: #(true true) put: 'r';
+		at: #(false false) put: 'T';
+		at: #(false true) put: 't';
+		yourself
+]
+
 { #category : 'accessing' }
 MyRook >> id [
 	^ 'R'
-]
-
-{ #category : 'rendering' }
-MyRook >> renderPieceOn: aSquare [
-
-	^ aSquare renderRook: self
 ]
 
 { #category : 'rendering' }

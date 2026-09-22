@@ -5,16 +5,20 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+{ #category : 'rendering' }
+MyBishop >> glyphTable [
+	^ Dictionary new
+		at: #(true false) put: 'B';
+		at: #(true true) put: 'b';
+		at: #(false false) put: 'V';
+		at: #(false true) put: 'v';
+		yourself
+]
+
 { #category : 'accessing' }
 MyBishop >> id [
 	
 	^ 'B'
-]
-
-{ #category : 'rendering' }
-MyBishop >> renderPieceOn: aSquare [
-
-	^ aSquare renderBishop: self
 ]
 
 { #category : 'rendering' }

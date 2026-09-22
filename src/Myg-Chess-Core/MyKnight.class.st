@@ -5,16 +5,20 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+{ #category : 'rendering' }
+MyKnight >> glyphTable [
+	^ Dictionary new
+		at: #(true false) put: 'N';
+		at: #(true true) put: 'n';
+		at: #(false false) put: 'M';
+		at: #(false true) put: 'm';
+		yourself
+]
+
 { #category : 'accessing' }
 MyKnight >> id [
 	
 	^ 'N'
-]
-
-{ #category : 'rendering' }
-MyKnight >> renderPieceOn: aSquare [
-
-	^ aSquare renderKnight: self
 ]
 
 { #category : 'rendering' }

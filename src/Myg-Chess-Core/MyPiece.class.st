@@ -172,6 +172,11 @@ MyPiece >> moveTo: aSquare [
 ]
 
 { #category : 'rendering' }
+MyPiece >> renderPieceOn: aSquare [
+	^ self glyphTable at: { self isWhite . aSquare color isBlack }
+]
+
+{ #category : 'rendering' }
 MyPiece >> rightFile [
 
 	^ self rightFileLegal: false

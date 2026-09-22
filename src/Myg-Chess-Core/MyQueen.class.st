@@ -6,9 +6,13 @@ Class {
 }
 
 { #category : 'rendering' }
-MyQueen >> renderPieceOn: aSquare [
-
-	^ aSquare renderQueen: self
+MyQueen >> glyphTable [
+	^ Dictionary new
+		at: #(true false) put: 'Q';
+		at: #(true true) put: 'q';
+		at: #(false false) put: 'W';
+		at: #(false true) put: 'w';
+		yourself
 ]
 
 { #category : 'rendering' }

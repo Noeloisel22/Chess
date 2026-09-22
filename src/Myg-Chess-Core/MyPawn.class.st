@@ -35,6 +35,16 @@ MyPawn >> forwardSquareFrom: aSquare [
 	self subclassResponsibility
 ]
 
+{ #category : 'rendering' }
+MyPawn >> glyphTable [
+	^ Dictionary new
+		at: #(true false) put: 'P';
+		at: #(true true) put: 'p';
+		at: #(false false) put: 'O';
+		at: #(false true) put: 'o';
+		yourself
+]
+
 { #category : 'accessing' }
 MyPawn >> id [
 
@@ -44,12 +54,6 @@ MyPawn >> id [
 { #category : 'as yet unclassified' }
 MyPawn >> initialFile [
 	self subclassResponsibility
-]
-
-{ #category : 'rendering' }
-MyPawn >> renderPieceOn: aSquare [ 
-	
-	^ aSquare renderPawn: self
 ]
 
 { #category : 'rendering' }
