@@ -119,6 +119,11 @@ MyPiece >> downRightDiagonalLegal: aBoolean [
 		  legal: aBoolean
 ]
 
+{ #category : 'rendering' }
+MyPiece >> glyphTable [
+	^ self subclassResponsibility
+]
+
 { #category : 'accessing' }
 MyPiece >> id [
 
