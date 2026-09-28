@@ -10,10 +10,9 @@ MyChessGameTest >> testCannotMoveOpponentPiece [
 	| game blackPawn e5 |
 	game := MyChessGame freshGame.
 	
-	"Au début, c'est aux Blancs de jouer"
 	self assert: game currentPlayer isWhite.
 	
-	"On tente illégalement de déplacer un pion noir en e5"
+	"On tente de déplacer un pion noir"
 	blackPawn := (game board at: 'e7') contents.
 	e5 := game board at: 'e5'.
 	game move: blackPawn to: e5.
