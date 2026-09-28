@@ -6,14 +6,32 @@ Class {
 }
 
 { #category : 'tests' }
+MyChessGameTest >> testCannotMoveOpponentPiece [
+	| game blackPawn e5 |
+	game := MyChessGame freshGame.
+	
+	"Au début, c'est aux Blancs de jouer"
+	self assert: game currentPlayer isWhite.
+	
+	"On tente illégalement de déplacer un pion noir en e5"
+	blackPawn := (game board at: 'e7') contents.
+	e5 := game board at: 'e5'.
+	game move: blackPawn to: e5.
+	
+	"Le pion ne doit pas avoir bougé et le tour doit rester aux Blancs"
+	self assert: (game board at: 'e7') contents equals: blackPawn.
+	self assert: (game board at: 'e5') contents isNil.
+	self assert: game currentPlayer isWhite.
+]
+
+{ #category : 'tests' }
 MyChessGameTest >> testWhiteStartsAndTurnSwitchesAfterLegalMove [
 	| game whitePawn e4 |
 	game := MyChessGame freshGame.
-	
-	"Au début, c'est au joueur blanc de jouer"
+
 	self assert: game currentPlayer isWhite.
 	
-	"On joue un coup blanc légal : e2 vers e4"
+	"e2 vers e4"
 	whitePawn := (game board at: 'e2') contents.
 	e4 := game board at: 'e4'.
 	game move: whitePawn to: e4.
