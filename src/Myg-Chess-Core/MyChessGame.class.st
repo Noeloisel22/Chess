@@ -138,7 +138,9 @@ MyChessGame >> move: piece to: square [
 	piece color ~= currentPlayer color
 		ifTrue: [ ^ self ].
 
-	piece moveTo: square.
+	(piece moveTo: square)
+		ifFalse: [ ^ self ].
+
 	self recordMovementOf: piece to: square.
 	self switchTurn
 ]
