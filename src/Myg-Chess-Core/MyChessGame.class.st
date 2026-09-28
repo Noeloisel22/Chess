@@ -49,6 +49,11 @@ MyChessGame class >> new [
 	self error: 'Please use one of the other constructors'
 ]
 
+{ #category : 'accessing' }
+MyChessGame >> board [
+	^ board
+]
+
 { #category : 'playing' }
 MyChessGame >> checkForMate [
 
@@ -130,9 +135,9 @@ MyChessGame >> initializeFromFENGame: aFENGame [
 
 { #category : 'public' }
 MyChessGame >> move: piece to: square [
-
 	piece moveTo: square.
-	self recordMovementOf: piece to: square
+	self recordMovementOf: piece to: square.
+	self switchTurn
 ]
 
 { #category : 'accessing' }
@@ -143,14 +148,8 @@ MyChessGame >> pieces [
 
 { #category : 'playing' }
 MyChessGame >> play [
-
 	currentPlayer play.
-	currentPlayer = whitePlayer
-		ifTrue: [ currentPlayer := blackPlayer ]
-		ifFalse: [ 
-			moveCount := moveCount + 1.
-			currentPlayer := whitePlayer ].
-	self checkForMate
+	self switchTurn
 ]
 
 { #category : 'moves' }
@@ -178,4 +177,14 @@ MyChessGame >> recordMovementOf: aPiece to: aSquare [
 	].
 	
 	movesLabel text: movesText
+]
+
+{ #category : 'playing' }
+MyChessGame >> switchTurn [
+	currentPlayer = whitePlayer
+		ifTrue: [ currentPlayer := blackPlayer ]
+		ifFalse: [ 
+			moveCount := moveCount + 1.
+			currentPlayer := whitePlayer ].
+	self checkForMate
 ]
