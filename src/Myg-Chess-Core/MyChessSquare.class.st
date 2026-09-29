@@ -148,7 +148,7 @@ MyChessSquare >> initialize [
 	target := BlElement new
 		  geometry: BlCircleGeometry new;
 		  background: (Color gray alpha: 0.3).
-
+	contents := MyNoPiece new.
 	self layout: BlFrameLayout new.
 
 	label := BlTextElement new.
