@@ -112,7 +112,7 @@ MyChessSquare >> down [
 { #category : 'asd' }
 MyChessSquare >> emptyContents [
 	
-	self contents: nil
+	self contents: MyNoPiece new
 ]
 
 { #category : 'accessing' }
@@ -131,8 +131,7 @@ MyChessSquare >> foreground [
 
 { #category : 'testing' }
 MyChessSquare >> hasPiece [
-	
-	^ contents isNil not
+	^ contents isPresent
 ]
 
 { #category : 'highlighting' }
