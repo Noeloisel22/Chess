@@ -142,6 +142,11 @@ MyPiece >> isPiece [
 	^ true
 ]
 
+{ #category : 'rendering' }
+MyPiece >> isPresent [
+	^ true
+]
+
 { #category : 'testing' }
 MyPiece >> isWhite [
 	
