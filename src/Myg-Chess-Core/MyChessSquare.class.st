@@ -100,7 +100,7 @@ MyChessSquare >> down [
 	^ self + (0 @ -1)
 ]
 
-{ #category : 'asd' }
+{ #category : 'accessing' }
 MyChessSquare >> emptyContents [
 	
 	self contents: MyNoPiece new

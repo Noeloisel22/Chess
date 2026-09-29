@@ -19,7 +19,7 @@ MyChessGameTest >> testCannotMoveOpponentPiece [
 	
 	"Le pion ne doit pas avoir bougé et le tour doit rester aux Blancs"
 	self assert: (game board at: 'e7') contents equals: blackPawn.
-	self assert: (game board at: 'e5') contents isNil.
+	self deny: (game board at: 'e5') hasPiece.
 	self assert: game currentPlayer isWhite.
 ]
 

@@ -6,6 +6,11 @@ Class {
 }
 
 { #category : 'testing' }
+MyNoPiece >> color [
+	^ nil
+]
+
+{ #category : 'testing' }
 MyNoPiece >> isPresent [
 	^ false
 ]
