@@ -160,6 +160,11 @@ MyChessSquare >> initialize [
 	self addEventHandlerOn: BlClickEvent do: [ :e | self click ]
 ]
 
+{ #category : 'testing' }
+MyChessSquare >> isSelected [
+	^ self border ~= BlBorder empty
+]
+
 { #category : 'accessing' }
 MyChessSquare >> left [
 
