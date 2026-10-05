@@ -11,6 +11,11 @@ MyNoPiece >> color [
 ]
 
 { #category : 'testing' }
+MyNoPiece >> hasPiece [
+	^ false
+]
+
+{ #category : 'testing' }
 MyNoPiece >> isPresent [
 	^ false
 ]

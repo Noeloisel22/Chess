@@ -124,6 +124,11 @@ MyPiece >> glyphTable [
 	^ self subclassResponsibility
 ]
 
+{ #category : 'testing' }
+MyPiece >> hasPiece [
+	^ true
+]
+
 { #category : 'accessing' }
 MyPiece >> id [
 
@@ -173,8 +178,12 @@ MyPiece >> legalTargetSquares [
 
 { #category : 'path commands' }
 MyPiece >> moveTo: aSquare [
-
+	| targetPiece |
 	(self legalTargetSquares includes: aSquare) ifFalse: [ ^ false ].
+
+	targetPiece := aSquare contents.
+	targetPiece hasPiece ifTrue: [ targetPiece square: nil ].
+
 	square emptyContents.
 	square := aSquare.
 	aSquare contents: self.
