@@ -24,6 +24,21 @@ MyChessGameTest >> testCannotMoveOpponentPiece [
 ]
 
 { #category : 'tests' }
+MyChessGameTest >> testClickingOpponentPieceDoesNotSelectSquare [
+	| game blackSquare initialState nextState |
+	game := MyChessGame freshGame.
+	
+	initialState := game board state.
+	self assert: initialState class equals: MyUnselectedState.
+	
+	blackSquare := game board at: 'e7'.
+	nextState := initialState clickOn: blackSquare.
+	
+	self assert: nextState class equals: MyUnselectedState.
+	self deny: blackSquare isSelected
+]
+
+{ #category : 'tests' }
 MyChessGameTest >> testWhiteStartsAndTurnSwitchesAfterLegalMove [
 	| game whitePawn e4 |
 	game := MyChessGame freshGame.
