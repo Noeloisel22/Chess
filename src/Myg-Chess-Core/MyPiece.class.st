@@ -25,6 +25,10 @@ MyPiece class >> white [
 		  yourself
 ]
 
+{ #category : 'path commands' }
+MyPiece >> afterMoveTo: aSquare [
+]
+
 { #category : 'as yet unclassified' }
 MyPiece >> attackingSquares [
 
@@ -187,6 +191,7 @@ MyPiece >> moveTo: aSquare [
 	square emptyContents.
 	square := aSquare.
 	aSquare contents: self.
+	self afterMoveTo: aSquare.
 	^ true
 ]
 
