@@ -24,6 +24,11 @@ MyBlackPawn >> initialFile [
 ]
 
 { #category : 'as yet unclassified' }
+MyBlackPawn >> promotedTo: aPieceClass [
+	^ aPieceClass black
+]
+
+{ #category : 'as yet unclassified' }
 MyBlackPawn >> promotionFile [
 	^ $1
 ]

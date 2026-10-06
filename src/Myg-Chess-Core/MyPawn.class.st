@@ -57,6 +57,11 @@ MyPawn >> initialFile [
 ]
 
 { #category : 'as yet unclassified' }
+MyPawn >> promotedTo: aPieceClass [
+	self subclassResponsibility
+]
+
+{ #category : 'as yet unclassified' }
 MyPawn >> promotionFile [
 	self subclassResponsibility
 ]

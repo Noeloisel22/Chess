@@ -24,6 +24,11 @@ MyWhitePawn >> initialFile [
 ]
 
 { #category : 'as yet unclassified' }
+MyWhitePawn >> promotedTo: aPieceClass [
+	^ aPieceClass white
+]
+
+{ #category : 'as yet unclassified' }
 MyWhitePawn >> promotionFile [
 	^ $8
 ]
