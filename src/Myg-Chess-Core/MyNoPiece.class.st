@@ -21,6 +21,11 @@ MyNoPiece >> isPresent [
 ]
 
 { #category : 'testing' }
+MyNoPiece >> legalTargetSquares [
+	^ #()
+]
+
+{ #category : 'testing' }
 MyNoPiece >> renderPieceOn: aSquare [
 	^ aSquare color isBlack ifTrue: [ 'x' ] ifFalse: [ 'z' ]
 ]
