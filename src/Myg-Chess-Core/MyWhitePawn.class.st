@@ -22,3 +22,8 @@ MyWhitePawn >> forwardSquareFrom: aSquare [
 MyWhitePawn >> initialFile [
 	^ $2
 ]
+
+{ #category : 'as yet unclassified' }
+MyWhitePawn >> promotionFile [
+	^ $8
+]

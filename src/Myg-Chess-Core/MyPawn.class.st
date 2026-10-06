@@ -56,6 +56,11 @@ MyPawn >> initialFile [
 	self subclassResponsibility
 ]
 
+{ #category : 'as yet unclassified' }
+MyPawn >> promotionFile [
+	self subclassResponsibility
+]
+
 { #category : 'rendering' }
 MyPawn >> targetSquaresLegal: aBoolean [
 	| targets oneStep twoSteps |
