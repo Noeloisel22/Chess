@@ -20,6 +20,11 @@ MyPawn class >> white [
 ]
 
 { #category : 'as yet unclassified' }
+MyPawn >> afterMoveTo: aSquare [
+	aSquare file = self promotionFile ifTrue: [ self promoteOn: aSquare ]
+]
+
+{ #category : 'as yet unclassified' }
 MyPawn >> attackingSquares [
 	square ifNil: [ ^ #( ) ].
 	^ self diagonalSquaresFrom: square
@@ -54,6 +59,15 @@ MyPawn >> id [
 { #category : 'as yet unclassified' }
 MyPawn >> initialFile [
 	self subclassResponsibility
+]
+
+{ #category : 'as yet unclassified' }
+MyPawn >> promoteOn: aSquare [
+	| promoted |
+	promoted := self promotedTo: MyQueen.
+	square := nil.
+	aSquare contents: promoted.
+	promoted square: aSquare
 ]
 
 { #category : 'as yet unclassified' }
