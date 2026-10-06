@@ -1,6 +1,9 @@
 Class {
 	#name : 'MyPawn',
 	#superclass : 'MyPiece',
+	#instVars : [
+		'promotionPieceClass'
+	],
 	#category : 'Myg-Chess-Core',
 	#package : 'Myg-Chess-Core'
 }
@@ -62,9 +65,15 @@ MyPawn >> initialFile [
 ]
 
 { #category : 'as yet unclassified' }
+MyPawn >> initialize [
+	super initialize.
+	promotionPieceClass := MyQueen
+]
+
+{ #category : 'as yet unclassified' }
 MyPawn >> promoteOn: aSquare [
 	| promoted |
-	promoted := self promotedTo: MyQueen.
+	promoted := self promotedTo: self promotionPieceClass.
 	square := nil.
 	aSquare contents: promoted.
 	promoted square: aSquare
@@ -78,6 +87,16 @@ MyPawn >> promotedTo: aPieceClass [
 { #category : 'as yet unclassified' }
 MyPawn >> promotionFile [
 	self subclassResponsibility
+]
+
+{ #category : 'as yet unclassified' }
+MyPawn >> promotionPieceClass [
+	^ promotionPieceClass
+]
+
+{ #category : 'as yet unclassified' }
+MyPawn >> promotionPieceClass: aPieceClass [
+	promotionPieceClass := aPieceClass
 ]
 
 { #category : 'rendering' }

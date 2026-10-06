@@ -111,6 +111,16 @@ MyPawnTest >> testPawnDoesNotPromoteBeforeLastRank [
 ]
 
 { #category : 'tests' }
+MyPawnTest >> testPawnPromotesToChosenPiece [
+	| board pawn |
+	board := MyChessBoard empty.
+	board at: 'e7' put: (pawn := MyPawn white).
+	pawn promotionPieceClass: MyKnight.
+	pawn moveTo: (board at: 'e8').
+	self assert: (board at: 'e8') contents class equals: MyKnight
+]
+
+{ #category : 'tests' }
 MyPawnTest >> testWhitePawnInitialMoveAllowsTwoSquares [
 	| board pawn targets |
 	board := MyChessBoard empty.
