@@ -19,6 +19,16 @@ MyPawnTest >> testBlackPawnInitialMoveAllowsTwoSquares [
 ]
 
 { #category : 'tests' }
+MyPawnTest >> testBlackPawnPromotesToQueenOnFirstRank [
+	| board pawn |
+	board := MyChessBoard empty.
+	board at: 'e2' put: (pawn := MyPawn black).
+	pawn moveTo: (board at: 'e1').
+	self assert: (board at: 'e1') contents class equals: MyQueen.
+	self deny: (board at: 'e1') contents isWhite
+]
+
+{ #category : 'tests' }
 MyPawnTest >> testPawnAttacksDiagonalsEvenIfEmpty [
 	| board pawn attacks |
 	board := MyChessBoard empty.
@@ -92,6 +102,15 @@ MyPawnTest >> testPawnDoesNotAttackForwardSquare [
 ]
 
 { #category : 'tests' }
+MyPawnTest >> testPawnDoesNotPromoteBeforeLastRank [
+	| board pawn |
+	board := MyChessBoard empty.
+	board at: 'e2' put: (pawn := MyPawn white).
+	pawn moveTo: (board at: 'e3').
+	self assert: ((board at: 'e3') contents isKindOf: MyPawn)
+]
+
+{ #category : 'tests' }
 MyPawnTest >> testWhitePawnInitialMoveAllowsTwoSquares [
 	| board pawn targets |
 	board := MyChessBoard empty.
@@ -102,4 +121,14 @@ MyPawnTest >> testWhitePawnInitialMoveAllowsTwoSquares [
 	self assert: (targets includes: (board at: 'e3')).
 	self assert: (targets includes: (board at: 'e4')).
 	self assert: targets size equals: 2
+]
+
+{ #category : 'tests' }
+MyPawnTest >> testWhitePawnPromotesToQueenOnLastRank [
+	| board pawn |
+	board := MyChessBoard empty.
+	board at: 'e7' put: (pawn := MyPawn white).
+	pawn moveTo: (board at: 'e8').
+	self assert: (board at: 'e8') contents class equals: MyQueen.
+	self assert: (board at: 'e8') contents isWhite
 ]
