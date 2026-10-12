@@ -25,6 +25,11 @@ MyPiece class >> white [
 		  yourself
 ]
 
+{ #category : 'visiting' }
+MyPiece >> acceptVisitor: aVisitor [
+	^ aVisitor visitPiece: self
+]
+
 { #category : 'path commands' }
 MyPiece >> afterMoveTo: aSquare [
 ]

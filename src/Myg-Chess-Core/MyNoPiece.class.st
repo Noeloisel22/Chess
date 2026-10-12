@@ -5,6 +5,11 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
+{ #category : 'visiting' }
+MyNoPiece >> acceptVisitor: aVisitor [
+	^ aVisitor visitNoPiece: self
+]
+
 { #category : 'testing' }
 MyNoPiece >> color [
 	^ nil
