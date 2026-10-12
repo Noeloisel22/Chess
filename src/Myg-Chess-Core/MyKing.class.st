@@ -45,25 +45,13 @@ MyKing >> id [
 
 { #category : 'testing' }
 MyKing >> isCheckMated [
-	"We check if the opponent pieces target all my potential movements and myself"
-
-	| threatenedSquares |
-	threatenedSquares := self opponentPieces flatCollect: [ :e |
-		                     e attackingSquares ].
-
 	^ self legalTargetSquares isEmpty and: [
-		  threatenedSquares includes: self square ]
+		  self threatenedSquares includes: self square ]
 ]
 
 { #category : 'testing' }
 MyKing >> isInCheck [
-	"We check if the opponent pieces target all my potential movements and myself"
-
-	| threatenedSquares |
-	threatenedSquares := self opponentPieces flatCollect: [ :e |
-		                     e attackingSquares ].
-
-	^ threatenedSquares includes: self square
+	^ self threatenedSquares includes: self square
 ]
 
 { #category : 'testing' }
@@ -72,27 +60,23 @@ MyKing >> isKing [
 	^ true
 ]
 
-{ #category : 'accessing' }
-MyKing >> opponentPieces [
-
-	^ self board pieces select: [ :e |
-		  e notNil and: [ e color = color negated ] ]
-]
-
 { #category : 'rendering' }
 MyKing >> targetSquaresLegal: aBoolean [
-	"The king cannot move to threatened squares"
-
-	| threatenedSquares |
-	threatenedSquares := self opponentPieces flatCollect: [ :e |
-		                     e attackingSquares ].
-
+	| threats |
+	threats := self threatenedSquares.
 	^ self basicTargetSquares select: [ :s |
 		  s notNil and: [
-			  (threatenedSquares includes: s) not and: [
+			  (threats includes: s) not and: [
 				  s hasPiece not or: [ 
-					"The square has an opponent piece"
 					s contents color ~= color and: [ 
-						"Let's hope the piece is not defended"
-						threatenedSquares includes: s  ] ] ] ] ]
+						threats includes: s ] ] ] ] ]
+]
+
+{ #category : 'accessing' }
+MyKing >> threatenedSquares [
+	| visitor |
+	visitor := MyThreatVisitor new.
+	visitor enemyColor: self color negated.
+	self board pieces do: [ :piece | piece acceptVisitor: visitor ].
+	^ visitor threatenedSquares
 ]
