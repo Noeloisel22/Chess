@@ -1,9 +1,17 @@
 Class {
 	#name : 'MyNoPiece',
 	#superclass : 'Object',
+	#classInstVars : [
+		'uniqueInstance'
+	],
 	#category : 'Myg-Chess-Core',
 	#package : 'Myg-Chess-Core'
 }
+
+{ #category : 'accessing' }
+MyNoPiece class >> uniqueInstance [
+	^ uniqueInstance ifNil: [ uniqueInstance := self basicNew initialize ]
+]
 
 { #category : 'visiting' }
 MyNoPiece >> acceptVisitor: aVisitor [

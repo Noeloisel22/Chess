@@ -201,7 +201,7 @@ MyChessBoard >> initializeSquares [
 						          color: Color black;
 						          board: self;
 						          initialize;
-						          contents: MyNoPiece new;
+						          contents: MyNoPiece uniqueInstance;
 						          yourself ]
 				          ifFalse: [
 					          black := true.
@@ -209,7 +209,7 @@ MyChessBoard >> initializeSquares [
 						          color: Color white;
 						          board: self;
 						          initialize;
-						          contents: MyNoPiece new;
+						          contents: MyNoPiece uniqueInstance;
 						          yourself ].
 			square name: squareNotation.
 			grid at: squareNotation put: square.

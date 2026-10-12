@@ -103,7 +103,7 @@ MyChessSquare >> down [
 { #category : 'accessing' }
 MyChessSquare >> emptyContents [
 	
-	self contents: MyNoPiece new
+	self contents: MyNoPiece uniqueInstance
 ]
 
 { #category : 'accessing' }
@@ -138,7 +138,7 @@ MyChessSquare >> initialize [
 	target := BlElement new
 		  geometry: BlCircleGeometry new;
 		  background: (Color gray alpha: 0.3).
-	contents := MyNoPiece new.
+	contents := MyNoPiece uniqueInstance.
 	self layout: BlFrameLayout new.
 
 	label := BlTextElement new.
