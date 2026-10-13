@@ -78,6 +78,21 @@ MyChessGame >> initialize [
 ]
 
 { #category : 'initialization' }
+MyChessGame >> initializeBoardFrom: aFENGame [
+
+	board := MyChessBoard fromFENBoard: aFENGame board.
+	board game: self
+]
+
+{ #category : 'initialization' }
+MyChessGame >> initializeCurrentPlayerFrom: aFENGame [
+
+	currentPlayer := aFENGame sideToMove = 'White'
+		                 ifTrue: [ whitePlayer ]
+		                 ifFalse: [ blackPlayer ]
+]
+
+{ #category : 'initialization' }
 MyChessGame >> initializeFonts [
 
 	"We use fonts to render the characters, and they should be loaded (and downloaded if not there yet)"
@@ -97,35 +112,16 @@ MyChessGame >> initializeFonts [
 { #category : 'initialization' }
 MyChessGame >> initializeFromFENGame: aFENGame [
 
-	| button infoPane |
-	aFENGame sideToMove = 'White'
-		ifTrue: [ currentPlayer := whitePlayer ]
-		ifFalse: [ currentPlayer := blackPlayer ].
-		
+	self initializeCurrentPlayerFrom: aFENGame.
 	moveCount := aFENGame moveCount.
-
-	board := MyChessBoard fromFENBoard: aFENGame board.
-	board game: self.
-	button := ToButton new.
-	button labelText: 'Play!'.
-	button whenClickedDo: [ self play ].
-	
-	infoPane := ToElement new.
-	infoPane constraintsDo: [ :c | 
-		        c vertical fitContent.
-		        c horizontal matchParent ].
-	infoPane layout: BlLinearLayout vertical.
-	infoPane layout cellSpacing: 10.
-	infoPane margin: (BlInsets all: 20).
-	infoPane matchParent.
-	
-	movesLabel := ToLabel new beMultiLine.
-	movesLabel matchParent.
-
+	self initializeBoardFrom: aFENGame.
 	self addChild: board.
-	self addChild: infoPane.
-	infoPane addChild: movesLabel.
-	infoPane addChild: button.
+	self addChild: self newInfoPane.
+	self initializeLayout
+]
+
+{ #category : 'initialization' }
+MyChessGame >> initializeLayout [
 
 	self layout: BlLinearLayout horizontal.
 	self constraintsDo: [ :aLayoutConstraints |
@@ -143,6 +139,36 @@ MyChessGame >> move: piece to: square [
 
 	self recordMovementOf: piece to: square.
 	self switchTurn
+]
+
+{ #category : 'initialization' }
+MyChessGame >> newInfoPane [
+
+	| infoPane |
+	infoPane := ToElement new.
+	infoPane constraintsDo: [ :c |
+		c vertical fitContent.
+		c horizontal matchParent ].
+	infoPane layout: BlLinearLayout vertical.
+	infoPane layout cellSpacing: 10.
+	infoPane margin: (BlInsets all: 20).
+	infoPane matchParent.
+
+	movesLabel := ToLabel new beMultiLine.
+	movesLabel matchParent.
+
+	infoPane addChild: movesLabel.
+	infoPane addChild: self newPlayButton.
+	^ infoPane
+]
+
+{ #category : 'initialization' }
+MyChessGame >> newPlayButton [
+
+	^ ToButton new
+		  labelText: 'Play!';
+		  whenClickedDo: [ self play ];
+		  yourself
 ]
 
 { #category : 'accessing' }
