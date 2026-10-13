@@ -25,23 +25,23 @@ MyPawn class >> white [
 		yourself
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'promotion' }
 MyPawn >> afterMoveTo: aSquare [
 	aSquare file = self promotionFile ifTrue: [ self promoteOn: aSquare ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'moving' }
 MyPawn >> attackingSquares [
 	square ifNil: [ ^ #( ) ].
 	^ self diagonalSquaresFrom: square
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'moving' }
 MyPawn >> diagonalSquaresFrom: aSquare [
 	self subclassResponsibility
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'moving' }
 MyPawn >> forwardSquareFrom: aSquare [
 	self subclassResponsibility
 ]
@@ -62,18 +62,18 @@ MyPawn >> id [
 	^ 'P'
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'moving' }
 MyPawn >> initialFile [
 	self subclassResponsibility
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'initialization' }
 MyPawn >> initialize [
 	super initialize.
 	promotionPieceClass := MyQueen
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'promotion' }
 MyPawn >> promoteOn: aSquare [
 	| promoted |
 	promoted := self promotedTo: self promotionPieceClass.
@@ -82,22 +82,22 @@ MyPawn >> promoteOn: aSquare [
 	promoted square: aSquare
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'promotion' }
 MyPawn >> promotedTo: aPieceClass [
 	self subclassResponsibility
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'promotion' }
 MyPawn >> promotionFile [
 	self subclassResponsibility
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'accessing' }
 MyPawn >> promotionPieceClass [
 	^ promotionPieceClass
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'accessing' }
 MyPawn >> promotionPieceClass: aPieceClass [
 	promotionPieceClass := aPieceClass
 ]

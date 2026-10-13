@@ -8,7 +8,7 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'moving' }
 MyKing >> attackingSquares [
 
 	^ self basicTargetSquares

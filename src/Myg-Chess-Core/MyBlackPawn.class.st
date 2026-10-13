@@ -8,7 +8,7 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'moving' }
 MyBlackPawn >> diagonalSquaresFrom: aSquare [
 	^ {
 		aSquare down ifNotNil: #left.
@@ -16,22 +16,22 @@ MyBlackPawn >> diagonalSquaresFrom: aSquare [
 	} select: [ :s | s notNil ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'moving' }
 MyBlackPawn >> forwardSquareFrom: aSquare [
 	^ aSquare down
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'moving' }
 MyBlackPawn >> initialFile [
 	^ $7
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'promotion' }
 MyBlackPawn >> promotedTo: aPieceClass [
 	^ aPieceClass black
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'promotion' }
 MyBlackPawn >> promotionFile [
 	^ $1
 ]

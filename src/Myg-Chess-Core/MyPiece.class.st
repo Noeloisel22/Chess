@@ -37,7 +37,7 @@ MyPiece >> acceptVisitor: aVisitor [
 MyPiece >> afterMoveTo: aSquare [
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'moving' }
 MyPiece >> attackingSquares [
 
 	^ self legalTargetSquares

@@ -8,7 +8,7 @@ Class {
 	#package : 'Myg-Chess-Core'
 }
 
-{ #category : 'as yet unclassified' }
+{ #category : 'moving' }
 MyWhitePawn >> diagonalSquaresFrom: aSquare [
 	^ {
 		aSquare up ifNotNil: #left.
@@ -16,22 +16,22 @@ MyWhitePawn >> diagonalSquaresFrom: aSquare [
 	} select: [ :s | s notNil ]
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'moving' }
 MyWhitePawn >> forwardSquareFrom: aSquare [
 	^ aSquare up
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'moving' }
 MyWhitePawn >> initialFile [
 	^ $2
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'moving' }
 MyWhitePawn >> promotedTo: aPieceClass [
 	^ aPieceClass white
 ]
 
-{ #category : 'as yet unclassified' }
+{ #category : 'moving' }
 MyWhitePawn >> promotionFile [
 	^ $8
 ]
