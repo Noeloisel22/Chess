@@ -75,7 +75,7 @@ MyPlayer >> play [
 			game move: piece to: legalMoves atRandom.
 			^ self ] ].
 
-	self halt: 'NO MOVES AVAILABLE!'
+	MyGameOver signal: 'No moves available!'
 ]
 
 { #category : 'constants' }

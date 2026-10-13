@@ -57,8 +57,8 @@ MyChessGame >> board [
 { #category : 'playing' }
 MyChessGame >> checkForMate [
 
-	whitePlayer king isCheckMated ifTrue: [ self halt: 'Black wins!' ].
-	blackPlayer king isCheckMated ifTrue: [ self halt: 'White wins!' ].
+	whitePlayer king isCheckMated ifTrue: [ ^ MyGameOver signal: 'Black wins!' ].
+	blackPlayer king isCheckMated ifTrue: [ ^ MyGameOver signal: 'White wins!' ]
 ]
 
 { #category : 'accessing' }

@@ -44,6 +44,14 @@ MyChessGameTest >> testCapturingPieceInRealGameDetachesIt [
 ]
 
 { #category : 'tests' }
+MyChessGameTest >> testCheckForMateDoesNothingAtStart [
+
+	self
+		shouldnt: [ MyChessGame freshGame checkForMate ]
+		raise: MyGameOver
+]
+
+{ #category : 'tests' }
 MyChessGameTest >> testClickingOpponentPieceDoesNotSelectSquare [
 	| game blackSquare initialState nextState |
 	game := MyChessGame freshGame.
@@ -74,6 +82,19 @@ MyChessGameTest >> testClickingSameSelectedSquareCancelsSelection [
 	self deny: whiteSquare isSelected.
 	self assert: (game board at: 'e2') contents notNil.
 	self assert: game currentPlayer isWhite.
+]
+
+{ #category : 'tests' }
+MyChessGameTest >> testFoolsMateSignalsGameOver [
+
+	| game |
+	game := MyChessGame freshGame.
+	game move: (game board at: 'f2') contents to: (game board at: 'f3').
+	game move: (game board at: 'e7') contents to: (game board at: 'e5').
+	game move: (game board at: 'g2') contents to: (game board at: 'g4').
+	self
+		should: [ game move: (game board at: 'd8') contents to: (game board at: 'h4') ]
+		raise: MyGameOver
 ]
 
 { #category : 'tests' }
