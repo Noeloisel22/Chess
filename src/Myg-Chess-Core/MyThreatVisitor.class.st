@@ -1,3 +1,6 @@
+"
+I visit the pieces of the board and collect the squares threatened by the pieces of an enemy color.
+"
 Class {
 	#name : 'MyThreatVisitor',
 	#superclass : 'Object',

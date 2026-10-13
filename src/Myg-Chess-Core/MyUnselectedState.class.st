@@ -1,3 +1,6 @@
+"
+I am the board state when no square is selected. A click on a piece of the current player selects it.
+"
 Class {
 	#name : 'MyUnselectedState',
 	#superclass : 'Object',

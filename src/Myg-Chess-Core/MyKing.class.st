@@ -1,3 +1,6 @@
+"
+I move one square in any direction, but never to a threatened square. I can tell if I am in check or checkmated.
+"
 Class {
 	#name : 'MyKing',
 	#superclass : 'MyPiece',

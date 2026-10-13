@@ -1,3 +1,6 @@
+"
+I am the abstract superclass of all chess pieces. I know my color and my square, I can move to another square, and I render myself with a glyph. My subclasses define their own moves and their glyphTable.
+"
 Class {
 	#name : 'MyPiece',
 	#superclass : 'Object',

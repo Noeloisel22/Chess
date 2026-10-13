@@ -1,3 +1,6 @@
+"
+I move up the board and I am promoted when I reach the last rank.
+"
 Class {
 	#name : 'MyWhitePawn',
 	#superclass : 'MyPawn',

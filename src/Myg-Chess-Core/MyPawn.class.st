@@ -1,3 +1,6 @@
+"
+I am the abstract superclass of pawns. I move forward, capture diagonally and I am promoted when I reach the last rank (hook afterMoveTo:). My subclasses MyWhitePawn and MyBlackPawn define the direction.
+"
 Class {
 	#name : 'MyPawn',
 	#superclass : 'MyPiece',

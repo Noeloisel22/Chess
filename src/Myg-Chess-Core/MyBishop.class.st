@@ -1,3 +1,6 @@
+"
+I move diagonally, as far as the board allows.
+"
 Class {
 	#name : 'MyBishop',
 	#superclass : 'MyPiece',

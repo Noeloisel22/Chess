@@ -1,3 +1,6 @@
+"
+I am the graphical board: 64 MyChessSquare in a grid. I keep the current selection state and I forward clicks to it.
+"
 Class {
 	#name : 'MyChessBoard',
 	#superclass : 'BlElement',

@@ -1,3 +1,6 @@
+"
+I am one of the two players. I know my color and I can play a random legal move.
+"
 Class {
 	#name : 'MyPlayer',
 	#superclass : 'Object',

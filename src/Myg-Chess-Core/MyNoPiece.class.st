@@ -1,3 +1,6 @@
+"
+I represent an empty square (Null Object pattern). There is only one instance, shared by all empty squares (Flyweight pattern): use MyNoPiece uniqueInstance.
+"
 Class {
 	#name : 'MyNoPiece',
 	#superclass : 'Object',

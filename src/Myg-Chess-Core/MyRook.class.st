@@ -1,3 +1,6 @@
+"
+I move in straight lines, horizontally and vertically, as far as the board allows.
+"
 Class {
 	#name : 'MyRook',
 	#superclass : 'MyPiece',

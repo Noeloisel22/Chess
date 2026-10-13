@@ -1,3 +1,6 @@
+"
+I am the board state when a square is selected. A click on a target square moves the selected piece, a click on the selected square cancels the selection.
+"
 Class {
 	#name : 'MySelectedState',
 	#superclass : 'Object',

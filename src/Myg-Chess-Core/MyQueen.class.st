@@ -1,3 +1,6 @@
+"
+I combine the moves of a rook and a bishop.
+"
 Class {
 	#name : 'MyQueen',
 	#superclass : 'MyPiece',

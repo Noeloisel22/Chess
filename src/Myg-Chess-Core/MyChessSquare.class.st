@@ -1,3 +1,6 @@
+"
+I am one square of the board. I have a color, a name, and my contents: a piece or MyNoPiece when I am empty. I handle clicks, selection and highlighting.
+"
 Class {
 	#name : 'MyChessSquare',
 	#superclass : 'BlElement',

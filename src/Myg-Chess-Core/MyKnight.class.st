@@ -1,3 +1,6 @@
+"
+I jump in an L shape and can jump over other pieces.
+"
 Class {
 	#name : 'MyKnight',
 	#superclass : 'MyPiece',
